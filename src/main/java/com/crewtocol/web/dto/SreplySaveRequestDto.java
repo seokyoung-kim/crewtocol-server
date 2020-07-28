@@ -1,6 +1,8 @@
 package com.crewtocol.web.dto;
 
 import com.crewtocol.domain.sreply.Sreply;
+import com.crewtocol.domain.user.User;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,18 +11,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SreplySaveRequestDto {
     private String content;
-    private String author;
+    private User user;
 
     @Builder
-    public SreplySaveRequestDto(String content, String author) {
+    public SreplySaveRequestDto(String content, User user) {
         this.content = content;
-        this.author = author;
+        this.user = user;
     }
 
     public Sreply toEntity() {
         return Sreply.builder()
                 .content(content)
-                .author(author)
+                .user(user)
                 .build();
     }
 }

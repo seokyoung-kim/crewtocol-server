@@ -1,6 +1,8 @@
 package com.crewtocol.web.dto;
 
 import com.crewtocol.domain.study.Study;
+import com.crewtocol.domain.user.User;
+
 import lombok.Getter;
 
 @Getter
@@ -9,7 +11,7 @@ public class StudyResponseDto {
     private long id;
     private String title;
     private String content;
-    private String author;
+    private User user;
     private String language;
     private String location;
     private int headCount;
@@ -18,7 +20,7 @@ public class StudyResponseDto {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.content = entity.getContent();
-        this.author = entity.getAuthor();
+        this.user = entity.getUser();
         this.language = entity.getLanguage();
         this.location = entity.getLocation();
         this.headCount = entity.getHeadCount();

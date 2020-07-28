@@ -2,6 +2,7 @@ package com.crewtocol.domain.sreply;
 
 import com.crewtocol.domain.BaseTimeEntity;
 import com.crewtocol.domain.study.Study;
+import com.crewtocol.domain.user.User;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -21,16 +22,19 @@ public class Sreply extends BaseTimeEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    private String author;
+    //USER_ID 연관 매핑
+    @ManyToOne
+    @JoinColumn(name="USER_ID")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "STUDY_ID")
     private Study study;
 
     @Builder
-    public Sreply(String content, String author) {
+    public Sreply(String content, User user) {
         this.content = content;
-        this.author = author;
+        this.user = user;
     }
 
     public void update(String content) {

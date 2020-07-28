@@ -1,6 +1,8 @@
 package com.crewtocol.web.dto;
 
 import com.crewtocol.domain.community.Community;
+import com.crewtocol.domain.user.User;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,14 +12,14 @@ import lombok.NoArgsConstructor;
 public class CommunitySaveRequestDto {
     private String title;
     private String content;
-    private String author;
+    private User user;
     private int headCount;
 
     @Builder
-    public CommunitySaveRequestDto(String title, String content, String author, int headCount) {
+    public CommunitySaveRequestDto(String title, String content, User user, int headCount) {
         this.title = title;
         this.content = content;
-        this.author = author;
+        this.user = user;
         this.headCount = headCount;
     }
 
@@ -25,7 +27,7 @@ public class CommunitySaveRequestDto {
         return Community.builder()
                 .title(title)
                 .content(content)
-                .author(author)
+                .user(user)
                 .headCount(headCount)
                 .build();
     }

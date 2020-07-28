@@ -2,6 +2,7 @@ package com.crewtocol.domain.study;
 
 import com.crewtocol.domain.BaseTimeEntity;
 import com.crewtocol.domain.sreply.Sreply;
+import com.crewtocol.domain.user.User;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -28,23 +29,26 @@ public class Study extends BaseTimeEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    private String author;
-
     private String location;
 
     private String language;
 
     private int headCount;
 
+    //USER_ID 연관 매핑
+    @ManyToOne
+    @JoinColumn(name="USER_ID")
+    private User user;
+
     //1:N 댓글
     @OneToMany(mappedBy = "study")
     private List<Sreply> sreplys = new ArrayList<Sreply>();
 
     @Builder
-    public Study(String title, String content, String author, String location, String language, int headCount) {
+    public Study(String title, String content,User user, String location, String language, int headCount) {
         this.title = title;
         this.content = content;
-        this.author = author;
+        this.user = user;
         this.location = location;
         this.language = language;
         this.headCount = headCount;
