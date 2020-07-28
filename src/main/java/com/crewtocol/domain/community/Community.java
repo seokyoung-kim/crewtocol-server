@@ -1,4 +1,4 @@
-package com.crewtocol.domain.study;
+package com.crewtocol.domain.community;
 
 import com.crewtocol.domain.BaseTimeEntity;
 import lombok.Builder;
@@ -10,9 +10,9 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Study extends BaseTimeEntity {
-
-    @Id 
+public class Community extends BaseTimeEntity {
+    
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -24,28 +24,19 @@ public class Study extends BaseTimeEntity {
 
     private String author;
 
-    private String location;
-
-    private String language;
-
     private int headCount;
 
     @Builder
-    public Study(String title, String content, String author, String location, String language, int headCount) {
+    public Community(String title, String content, String author, int headCount) {
         this.title = title;
         this.content = content;
         this.author = author;
-        this.location = location;
-        this.language = language;
         this.headCount = headCount;
     }
 
-    public void update(String title, String content, String language, String location, int headCount) {
+    public void update(String title, String content, int headCount) {
         this.title = title;
         this.content = content;
-        this.location = location;
-        this.language = language;
         this.headCount = headCount;
     }
-
 }
