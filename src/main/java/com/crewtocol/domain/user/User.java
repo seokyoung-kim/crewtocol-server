@@ -15,8 +15,8 @@ import javax.persistence.*;
 public class User extends BaseTimeEntity {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String email;
@@ -25,19 +25,19 @@ public class User extends BaseTimeEntity {
 
     private String password;
 
-    private int option;
+    private int opt;
 
     @Builder
-    public User(String email, String author, String password, int option){
+    public User(String email, String author, String password, int opt){
         this.email = email;
         this.author = author;
         this.password = password;
-        this.option = option;
+        this.opt = opt;
     }
 
-    public void update(String email, String password, int option){
+    public void update(String email, String password, int opt){
         this.email = email;
         this.password = password;
-        this.option = option;
+        this.opt = opt;
     }
 }

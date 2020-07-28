@@ -9,13 +9,13 @@ public class UserListResponseDto {
     private String email;
     private String author;
     private String password;
-    private int option;
+    private int opt;
 
     public UserListResponseDto(User entity) {
         this.id = entity.getId();
         this.email = entity.getEmail();
         this.author = entity.getAuthor();
         this.password = entity.getPassword();
-        this.option = entity.getOption();
+        this.opt = entity.getOpt();
     }
 }

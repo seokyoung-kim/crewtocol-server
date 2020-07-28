@@ -27,7 +27,7 @@ public class UserService {
     public Long update(Long id, UserUpdateRequestDto requestDto) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다 id = " + id));
 
-        user.update(requestDto.getEmail(), requestDto.getPassword(), requestDto.getOption());
+        user.update(requestDto.getEmail(), requestDto.getPassword(), requestDto.getOpt());
         return id;
     }
 
