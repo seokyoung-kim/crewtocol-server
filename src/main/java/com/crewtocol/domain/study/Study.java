@@ -1,9 +1,14 @@
 package com.crewtocol.domain.study;
 
 import com.crewtocol.domain.BaseTimeEntity;
+import com.crewtocol.domain.sreply.Sreply;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -14,6 +19,7 @@ public class Study extends BaseTimeEntity {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "STUDY_ID")
     private Long id;
 
     @Column(length = 500, nullable = false)
@@ -29,6 +35,10 @@ public class Study extends BaseTimeEntity {
     private String language;
 
     private int headCount;
+
+    //1:N 댓글
+    @OneToMany(mappedBy = "study")
+    private List<Sreply> sreplys = new ArrayList<Sreply>();
 
     @Builder
     public Study(String title, String content, String author, String location, String language, int headCount) {

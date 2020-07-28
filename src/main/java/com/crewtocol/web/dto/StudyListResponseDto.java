@@ -19,7 +19,7 @@ public class StudyListResponseDto {
         this.title = entity.getTitle();
         this.author = entity.getAuthor();
         this.language = entity.getLanguage();
-        this.location = entity.getAuthor();
+        this.location = entity.getLocation();
         this.modifiedDate = entity.getModifiedDate();
     }
 }
