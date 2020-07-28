@@ -8,9 +8,9 @@ import java.util.Optional;
 
 public interface CommunityRepository extends JpaRepository<Community, Long> {
     
-    @Query("SELECT p.id,p.title,q.author,p.createdDate FROM Community p User q WHRER p.user = q.id ORDER BY p.id DESC")
+    @Query("SELECT p.id,p.title,q.author,p.createdDate FROM Community p User q ON p.user = q.id ORDER BY p.id DESC")
     List<Community> findAllDesc();
 
-    @Query("SELECT p.id,p.title,p.content,q.author,p.headCount FROM Community p User q Where p.user = q.id")
+    @Query("SELECT p.id,p.title,p.content,q.author,p.headCount FROM Community p User q ON p.user = q.id")
     Optional<Community> findById(Long id);
 }
