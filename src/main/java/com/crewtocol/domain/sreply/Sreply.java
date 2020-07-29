@@ -24,7 +24,7 @@ public class Sreply extends BaseTimeEntity {
 
     //USER_ID 연관 매핑
     @ManyToOne
-    @JoinColumn(name="USER_ID")
+    @JoinColumn(name="author")
     private User user;
 
     @ManyToOne

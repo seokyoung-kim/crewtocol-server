@@ -15,12 +15,12 @@ import javax.persistence.*;
 public class User extends BaseTimeEntity {
     
     @Id
-    @Column(name = "USER_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String email;
 
+    @Column(name = "author")
     private String author;
 
     private String password;

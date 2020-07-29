@@ -22,9 +22,9 @@ public class Creply extends BaseTimeEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    //USER_ID 연관 매핑
+    //닉네임 연관 매핑
     @ManyToOne
-    @JoinColumn(name="USER_ID")
+    @JoinColumn(name="author")
     private User user;
     
     @ManyToOne
