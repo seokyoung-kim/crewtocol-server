@@ -1,15 +1,13 @@
 package com.crewtocol.domain.community;
 
 import com.crewtocol.domain.BaseTimeEntity;
-import com.crewtocol.domain.creply.Creply;
 import com.crewtocol.domain.user.User;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.persistence.*;
 
@@ -19,8 +17,8 @@ import javax.persistence.*;
 public class Community extends BaseTimeEntity {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "COMMUNITY_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 500, nullable = false)
@@ -31,14 +29,10 @@ public class Community extends BaseTimeEntity {
 
     private int headCount;
 
-    //USER_ID 연관 매핑
+    //USER_ID 연관 매핑(FK)
     @ManyToOne
     @JoinColumn(name="USER_ID")
     private User user;
-
-     //1:N 댓글
-    @OneToMany(mappedBy = "community")
-    private List<Creply> creplys = new ArrayList<Creply>();
 
     @Builder
     public Community(String title, String content, User user, int headCount) {
