@@ -33,7 +33,7 @@ public class Community extends BaseTimeEntity {
 
     //author 연관 매핑(FK)
     @ManyToOne
-    @JoinColumn(name="author")
+    @JoinColumn(name="USER_ID")
     private User user;
 
     @OneToMany(mappedBy = "community")

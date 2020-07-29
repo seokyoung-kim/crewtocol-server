@@ -24,7 +24,7 @@ public class Creply extends BaseTimeEntity {
 
     //닉네임 연관 매핑
     @ManyToOne
-    @JoinColumn(name="author")
+    @JoinColumn(name="USER_ID")
     private User user;
     
     @ManyToOne
