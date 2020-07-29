@@ -3,6 +3,7 @@ package com.crewtocol.web.dto;
 import com.crewtocol.domain.study.Study;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -12,14 +13,16 @@ public class StudyListResponseDto {
     private String author;
     private String language;
     private String location;
-    private LocalDateTime modifiedDate;
+    private LocalDate modifiedDate;
+    private int headCount;
 
     public StudyListResponseDto(Study entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.author = entity.getAuthor();
         this.language = entity.getLanguage();
-        this.location = entity.getAuthor();
+        this.location = entity.getLocation();
         this.modifiedDate = entity.getModifiedDate();
+        this.headCount = entity.getHeadCount();
     }
 }
