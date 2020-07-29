@@ -1,7 +1,7 @@
-package com.crewtocol.domain.study;
+package com.crewtocol.domain.community;
 
 import com.crewtocol.domain.BaseTimeEntity;
-import com.crewtocol.domain.sreply.Sreply;
+import com.crewtocol.domain.creply.Creply;
 import com.crewtocol.domain.user.User;
 
 import lombok.Builder;
@@ -16,11 +16,11 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Study extends BaseTimeEntity {
-
-    @Id 
+public class Community extends BaseTimeEntity {
+    
+    @Id
+    @Column(name = "COMMUNITY_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "STUDY_ID")
     private Long id;
 
     @Column(length = 500, nullable = false)
@@ -29,37 +29,27 @@ public class Study extends BaseTimeEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    private String location;
-
-    private String language;
-
     private int headCount;
 
-    //USER_ID 연관 매핑
+    //author 연관 매핑(FK)
     @ManyToOne
     @JoinColumn(name="USER_ID")
     private User user;
 
-    //1:N 댓글
-    @OneToMany(mappedBy = "study")
-    private List<Sreply> sreplys = new ArrayList<Sreply>();
+    @OneToMany(mappedBy = "community")
+    private List<Creply> sreplys = new ArrayList<Creply>();
 
     @Builder
-    public Study(String title, String content,User user, String location, String language, int headCount) {
+    public Community(String title, String content, User user, int headCount) {
         this.title = title;
         this.content = content;
         this.user = user;
-        this.location = location;
-        this.language = language;
         this.headCount = headCount;
     }
 
-    public void update(String title, String content, String language, String location, int headCount) {
+    public void update(String title, String content, int headCount) {
         this.title = title;
         this.content = content;
-        this.location = location;
-        this.language = language;
         this.headCount = headCount;
     }
-
 }

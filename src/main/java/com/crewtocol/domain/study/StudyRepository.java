@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+
+
 public interface StudyRepository extends JpaRepository<Study, Long> {
 
     @Query("SELECT p FROM Study p ORDER BY p.id DESC")
