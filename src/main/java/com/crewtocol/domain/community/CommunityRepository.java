@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CommunityRepository extends JpaRepository<Community, Long> {
     
-    @Query("SELECT p FROM Community p ORDER BY p.id DESC")
+    @Query("SELECT p,q.author FROM Community p, User q WHERE p.user = q.id ORDER BY p.id DESC")
     List<Community> findAllDesc();
 
 }
