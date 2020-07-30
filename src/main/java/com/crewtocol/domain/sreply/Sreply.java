@@ -32,9 +32,10 @@ public class Sreply extends BaseTimeEntity {
     private Study study;
 
     @Builder
-    public Sreply(String content, User user) {
+    public Sreply(String content, User user, Study study) {
         this.content = content;
         this.user = user;
+        this.study = study;
     }
 
     public void update(String content) {

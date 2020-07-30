@@ -32,9 +32,11 @@ public class Creply extends BaseTimeEntity {
     private Community community;
 
     @Builder
-    public Creply(String content, User user) {
+    public Creply(String content, User user, Community community){
         this.content = content;
         this.user = user;
+        this.community = community;
+
     }
 
     public void update(String content) {
