@@ -6,7 +6,7 @@ import com.crewtocol.domain.study.Study;
 
 import lombok.Getter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 public class SreplyListResponseDto {
@@ -14,7 +14,7 @@ public class SreplyListResponseDto {
     private String content;
     private User user;
     private Study study;
-    private LocalDateTime createdDate;
+    private LocalDate createdDate;
 
     public SreplyListResponseDto(Sreply entity) {
         this.id = entity.getId();

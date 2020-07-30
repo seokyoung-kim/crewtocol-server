@@ -5,6 +5,9 @@ import com.crewtocol.domain.user.User;
 
 import lombok.Getter;
 
+import java.time.LocalDate;
+
+
 @Getter
 public class StudyResponseDto {
 
@@ -14,6 +17,7 @@ public class StudyResponseDto {
     private User user;
     private String language;
     private String location;
+    private LocalDate modifiedDate;
     private int headCount;
 
     public StudyResponseDto(Study entity) {
@@ -23,6 +27,7 @@ public class StudyResponseDto {
         this.user = entity.getUser();
         this.language = entity.getLanguage();
         this.location = entity.getLocation();
+        this.modifiedDate = entity.getModifiedDate();
         this.headCount = entity.getHeadCount();
     }
 }

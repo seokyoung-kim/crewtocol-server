@@ -5,14 +5,14 @@ import com.crewtocol.domain.user.User;
 
 import lombok.Getter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 public class CommunityListResponseDto {
     private Long id;
     private String title;
     private User user;
-    private LocalDateTime createdDate;
+    private LocalDate createdDate;
 
     public CommunityListResponseDto(Community entity) {
         this.id = entity.getId();

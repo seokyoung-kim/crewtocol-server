@@ -6,7 +6,7 @@ import com.crewtocol.domain.community.Community;
 
 import lombok.Getter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 public class CreplyListResponseDto {
@@ -14,7 +14,7 @@ public class CreplyListResponseDto {
     private String content;
     private User user;
     private Community community;
-    private LocalDateTime createdDate;
+    private LocalDate createdDate;
 
     public CreplyListResponseDto(Creply entity) {
         this.id = entity.getId();
